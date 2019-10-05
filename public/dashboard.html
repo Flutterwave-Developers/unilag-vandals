@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vandals Patient Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" description="Team Vandals">
+    <meta name="TestimonyBank" description="A simple web app to store peoples testimonies">
+    <!-- Css -->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/Lato/latofonts.css">
+    <link rel="stylesheet" type="text/css" href="css/google_font/base.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/display.css">
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <!-- JavaScript -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/fontawesome-all.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/Chart.min.js"></script>
+    <script type="text/javascript" src="js/display.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/dashboard.js"></script>
+    <script src="https://api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js"></script>
+</head>
+
+<body>
+    <section class="" id="dashboardContainer">
+        <div class="row" id="dashboardBody">
+            <div class="col m4 l3 hide-on-small-only fullHeight dashboardMenuHide" id="dashboardMenu">
+                <div class="displayFlex" id="dashboardProfile">
+                    <div class="white z-depth-2" id="profileCard">
+                        <div class="white displayFlex" id="profileField" onclick="showLogout()">
+                            <div class="fullHeight displayFlex" id="profilePicture">
+                                <img class="circle" src="images/avatar2.jpg" id="profilePicture" width="20" height="60">
+                            </div>
+                            <div class="fullHeight displayFlex" id="profileName">
+                                Moshood Ismail
+                            </div>
+                            <div class="fullHeightdisplayFlexColumn" id="expandIcon">
+                                <i class="fas fa-sort-up"></i>
+                                <i class="fas fa-sort-down"></i>
+                            </div>
+                        </div>
+                        <div class="white displayFlex" id="logout">logout&nbsp;&nbsp; <i class="fas fa-sign-out-alt fas-rotate-180" id="logoutIcon"></i></div>
+                    </div>
+                </div>
+                <div class="dashboardMenuOption z-depth-2 white displayFlexLeft padLeft activeMenu" onclick="openAppointment()">
+                    <i class="fas fa-calendar-plus"></i>&nbsp; &nbsp;
+                    Appointments
+                </div>
+                <div class="dashboardMenuOption z-depth-2 white displayFlexLeft padLeft">
+                    <i class="fas fa-history"></i>&nbsp; &nbsp;
+                    History
+                </div>
+                <div class="dashboardMenuOption z-depth-2 white displayFlexLeft padLeft">
+                    <i class="fas fa-bell"></i>&nbsp; &nbsp;
+                    Notifications
+                </div>
+                <div class="dashboardMenuOption z-depth-2 white displayFlexLeft padLeft" onclick="openPayment()">
+                    <i class="fas fa-handshake"></i>&nbsp; &nbsp;
+                    Payments
+                </div>
+                <div class="dashboardMenuOption z-depth-2 white displayFlexLeft padLeft">
+                    <i class="fas fa-align-justify"></i>&nbsp; &nbsp;
+                    Reviews
+                </div>
+            </div>
+            <div class="col s12 m8 l9 fullHeight" id="dashboardMainBody">
+                <!-- This code block is gonna consist of several div pages that would be displayed
+                all through the dashboard -->
+                <div class="displayFlex row" id="dashboardHeader">
+                    <div class="col s3 hide-on-med-and-up fullHeight displayFlex">
+                        <i class="fas fa-bars fa-3x" id="menuIcon" onclick="showMobileMenu()"></i>
+                    </div>
+                    <div class="col s9 m12 l12 fullHeight displayFlex">
+                        <input type="text" class="browser-default z-depth-1" id="searchInput" name="" placeholder="Search anything here, appointments, history, doctors, hospitals, etc......">
+                    </div>
+                </div>
+                <div class="dashboard" id="summaryDashboard">
+                    <div class="displayFlexLeft padLeft" id="dashboardTitle">
+                        <h5>Appointments</h5>
+                    </div>
+                    <div class="white row z-depth-1" id="dashboardContent">
+                        <!-- For appointments -->
+                        <div class="col s12 m7 l7 fullHeight" id="appointmentPart">
+                            <div class="row" id="menuHeader">
+                                <div class="col s12 m6 l6 fullHeight displayFlex mh">
+                                    <h6>3 appointments left to attend</h6>
+                                </div>
+                                <div class="col s12 m6 l6 fullHeight displayFlex mh">
+                                    <div class="displayFlex z-depth-1" id="addAppointmentButton">Schedule appointment</div>
+                                </div>
+                            </div>
+                            <div class="row" id="dashboardNav">
+                                <div class="col s4 m4 l4 fullHeight displayFlex">Host</div>
+                                <div class="col s4 m4 l4 fullHeight displayFlex">Description</div>
+                                <div class="col s4 m4 l4 fullHeight displayFlex">Date</div>
+                            </div>
+                            <div class="row" id="dashboardOption">
+                                <div class="col s4 m4 l4 fullHeight">
+                                    <div class="displayFlexBottom halfHeight hospitalClick">LASUTH</div>
+                                    <div class="displayFlexBottom halfHeight doctorClick">Dr Amusan Mobolaji</div>
+                                </div>
+                                <div class="col s4 m4 l4 fullHeight displayFlex" id="appointmentDescription" style="font-size: 10px;">
+                                    Checkup on my operated lower abdomenn
+                                </div>
+                                <div class="col s4 m4 l4 fullHeight">
+                                    <div class="displayFlexBottom halfHeight appointmentDate">
+                                        24 - 08 - 2019
+                                    </div>
+                                    <div class="displayFlexBottom halfHeight appointmentDate">10:00am</div>
+                                </div>
+                            </div>
+                            <div class="row" id="dashboardOption">
+                                <div class="col s4 m4 l4 fullHeight">
+                                    <div class="displayFlexBottom halfHeight hospitalClick">LASUTH</div>
+                                    <div class="displayFlexBottom halfHeight doctorClick">Dr Amusan Mobolaji</div>
+                                </div>
+                                <div class="col s4 m4 l4 fullHeight displayFlex" id="appointmentDescription" style="font-size: 10px;">
+                                    Checkup on my operated lower abdomenn
+                                </div>
+                                <div class="col s4 m4 l4 fullHeight">
+                                    <div class="displayFlexBottom halfHeight appointmentDate">
+                                        24 - 08 - 2019
+                                    </div>
+                                    <div class="displayFlexBottom halfHeight appointmentDate">10:00am</div>
+                                </div>
+                            </div>
+                            <div class="row" id="dashboardOption">
+                                <div class="col s4 m4 l4 fullHeight displayFlexColumn">
+                                    <div class="displayFlexBottom halfHeight hospitalClick">LASUTH</div>
+                                    <div class="displayFlexBottom halfHeight doctorClick">Dr Amusan Mobolaji</div>
+                                </div>
+                                <div class="col s4 m4 l4 fullHeight displayFlex" id="appointmentDescription" style="font-size: 10px;">
+                                    Checkup on my operated lower abdomenn
+                                </div>
+                                <div class="col s4 m4 l4 fullHeight">
+                                    <div class="displayFlexBottom halfHeight appointmentDate">
+                                        24 - 08 - 2019
+                                    </div>
+                                    <div class="displayFlexBottom halfHeight appointmentDate">10:00am</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- For payments -->
+                        <div class="col s12 m7 l7 fullHeight" id="paymentPart">
+                            <div class="displayFlexRight padRight" id="paymentPartHead">
+                                <div class="displayFlex z-depth-1 waves-effect waves-light" id="suscribeBtn" 
+                                onclick="payWithRave()">Suscribe</div>
+                            </div>
+                            <div class="row" id="dashboardNav">
+                                <div class="col s6 m6 l6 fullHeight displayFlex">Amount(N)</div>
+                                <div class="col s6 m6 l6 fullHeight displayFlex">Date</div>
+                            </div>
+                            <div class="pay row">
+                                <div class="col s6 m6 l6 fullHeight displayFlex ">500</div>
+                                <div class="col s6 m6 l6 fullHeight displayFlex">30/05/2019</div>
+                            </div>
+                            <div class="pay row">
+                                <div class="col s6 m6 l6 fullHeight displayFlex ">500</div>
+                                <div class="col s6 m6 l6 fullHeight displayFlex">20/07/2019</div>
+                            </div>
+                            <div class="pay row">
+                                <div class="col s6 m6 l6 fullHeight displayFlex ">500</div>
+                                <div class="col s6 m6 l6 fullHeight displayFlex">10/08/2019</div>
+                            </div>
+                            <div class="pay row">
+                                <div class="col s6 m6 l6 fullHeight displayFlex ">500</div>
+                                <div class="col s6 m6 l6 fullHeight displayFlex">5/09/2019</div>
+                            </div>
+                        </div>
+                        <!-- Appointments survey -->
+                        <div class="col s12 m5 l5 fullHeight ">
+                            <div class="displayFlex appointmentSurveyHeader">
+                                Appointment Survey
+                            </div>
+                            <div id="surveyWords">The survey below gives a basic analysis of how you've been frequent with your appointment</div>
+                            <br />
+                            <canvas class="" id="survey"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="displayFlex" id="scheduleAppointmentBody">
+        <i class="fas fa-times fa-2x" id="closeScheduler" onclick="closeScheduler()"></i>
+        <div class="white z-depth-2" id="schedulerBody">
+            <div class="displayFlex" id="schedulerHead">Schedule Appointment</div>
+            <div class="schedulerInput">
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="1">Military Hospital Ikoyi</option>
+                        <option value="2">St nicholas Hospital</option>
+                        <option value="3">Ifako Ijaiye General Hospital</option>
+                        <option value="3">Osuntunyi Hospital</option>
+                    </select>
+                    <label>Select an Hospital</label>
+                </div>
+            </div>
+
+            <div class="schedulerInput">
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="1">Dr Robert Kingsley</option>
+                        <option value="2">Dr Ace kid</option>
+                        <option value="3">Dr Ekene</option>
+                        <option value="3">Dr Rave</option>
+                    </select>
+                    <label>Select a Doctor</label>
+                </div>
+            </div>
+
+            <div class="schedulerInput">
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="3">Thursday</option>
+                        <option value="3">Friday</option>
+                    </select>
+                    <label>Available Days</label>
+                </div>
+            </div>
+
+            <div class="schedulerInput">
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="1">8:00am</option>
+                        <option value="2">10:00am</option>
+                        <option value="3">2:30pm</option>
+                        <option value="3">3:00pm</option>
+                        <option value="3">4:00pm</option>
+                    </select>
+                    <label>Available times</label>
+                </div>
+            </div>
+
+            <div class="schedulerInput displayFlexTop">
+                <div class="displayFlex waves-effect waves-light" id="schedulerBtn">Schedule</div>
+            </div>
+
+        </div>
+    </section>
+    <div class="overlay" onclick="showMobileMenu()"></div>
+</body>
+
+</html>

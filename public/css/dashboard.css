@@ -1,0 +1,394 @@
+/* The code for all of VAndals dashboard goes here */
+#dashboardContainer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+#dashboardMenu{
+    border-right: 3px solid lightgrey;    
+    width: 20%;
+}
+
+#dashboardMainBody{
+    width: 80%;
+    padding: 0px!important;
+}
+
+#logo {
+    color: var(--pageLightRed);
+}
+
+#menuIcon {
+    color: grey;
+}
+
+#logoutButton {
+    font-size: 1.3em;
+    color: blue;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+#logoutButton:hover {
+    color: lightblue;
+}
+
+#dashboardBody {
+    height: 100%;
+    background: var(--body);
+}
+
+#dashboardProfile{
+    height: 30%;
+}
+
+#profileCard{
+    width: 200px;
+    max-height: 130px;
+    min-height: ;
+}
+
+#profileField{
+    height: 80px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#logout{
+    display: none;
+    height: 50px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: .3s linear;
+    animation: scale .3s linear;
+}
+
+.showLogout{
+    display: flex!important;
+}
+
+#logout:hover{
+    color: var(--pageVeryLightRed);
+}
+
+#logoutIcon{
+    transform: rotateX(-180deg)!important;
+}
+
+#profilePicture{
+    width: 60px;
+    border-top-left-radius: 5px;
+}
+
+#profileName{
+    width: 120px;
+    font-size: 1em;
+    padding-left: 10px;
+}
+
+#expandIcon{
+    width: 20px;
+}
+
+.dashboardMenuOption {
+    width: 100%;
+    margin: 1em 0px 1em 0px;
+    height: 3em;
+    font-size: 1.1em;
+    color: grey;
+    text-align: left;
+    transition: .3s linear;
+}
+
+.dashboardMenuOption:hover {
+    cursor: pointer;
+    background: #eae4e4 !important;
+}
+
+.activeMenu{
+    background: var(--pageLightRed)!important;
+    color: white;
+}
+.activeMenu:hover{
+    background: var(--pageLightRed)!important;
+}
+
+
+.dashboard {
+    width: 95%;
+    height: 90%;
+}
+
+
+.summaryCard {
+    width: 250px;
+    height: 300px;
+}
+
+#dashboardHeader{
+    height: 13%;
+    width: 100%;
+}
+
+#summaryDashboard {
+    width: 100%;
+    height: 87%;
+    padding: 2em !important;
+}
+
+#searchInput{
+    width: 70%;
+    height: 50px;
+    background: rgb(235, 239, 252);
+    border: none;
+    padding-right: 1em;
+    padding-left: 1.8em;
+    outline-color: #597eec;
+}
+
+#dashboardTitle{
+    width: 100%;
+    height: 10%;
+}
+
+#dashboardContent{
+    min-height: 90%;
+}
+
+#menuIcon{
+    color: var(--pageLightRed)!important;
+}
+
+#menuHeader{
+    height: 70px;
+}
+
+#addAppointmentButton{
+    height: 40px;
+    width: 200px;
+    background: var(--pageLightRed);
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+#addAppointmentButton:hover{
+    background: var(--pageVeryLightRed);
+}
+
+#dashboardNav{
+    height: 50px;
+    border-top: 1px solid lightgrey!important;
+    background: var(--body);
+}
+#dashboardOption{
+    min-height: 50px;
+    max-height: 100px;
+}
+
+#dashboardOption:hover{
+    background: var(--pageLightBlue);
+}
+
+.hospitalClick, .doctorClick{
+    height: 18px;
+    color: blue;
+    cursor: pointer;   
+    font-size: 14px;
+    font-family: 'LatoWeb', sans-serif
+}
+
+.appointmentDate{
+    height: 18px;   
+    font-size: 13px;
+    transition: .3s linear;
+    font-family: 'LatoWeb', sans-serif;
+}
+
+.hospitalClick:hover, .doctorClick:hover{
+    color: white;
+}
+
+#appointmentDescription{
+    font-size: 14px!important;
+    font-family: 'LatoWeb', sans-serif;
+}
+
+.appointmentSurveyHeader{
+    height: 60px;
+    font-size: 1.5em;
+}
+
+#closeMen{
+    position: fixed!important;
+    top: 10px;
+    right: 1000px;
+}
+
+
+#scheduleAppointmentBody{
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 2!important;
+}
+
+#schedulerBody{
+    width: 400px;
+    height: 500px;
+    border-radius: 5px;
+}
+
+#schedulerHead{
+    width: 100%;
+    height: 60px;
+    color: white;
+    font-size: 1.4em;
+    background: var(--pageLightRed);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.schedulerInput{
+    margin: 2em;
+    height: 60px;
+}
+
+#schedulerBtn{
+    width: 120px;
+    height: 40px;
+    color: white;
+    background: var(--pageLightRed);
+    border-radius: 3px;
+}
+
+#closeScheduler{
+    color: var(--pageLightRed);
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+#closeScheduler:hover{
+    color: var(--pageVeryLightRed);
+}
+
+#paymentContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+
+
+
+
+#appointmentPart{
+    /*display: none;*/
+}
+
+#paymentPart{
+    display: none;
+}
+
+
+
+
+#paymentPart{
+    min-height: 400px;
+}
+
+#paymentPartHead{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid var(--body);
+}
+
+#suscribeBtn{
+    width: 150px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    background: var(--pageLightRed);
+    border-radius: 3px;
+}
+
+.pay{
+    height: 50px;
+    margin: 1em;
+    margin-bottom: 1px solid red;
+}
+
+
+
+
+
+@keyframes slideIn {
+    from {
+        transform: translate(-400px);
+    }
+}
+
+@keyframes scale {
+    from{
+        transform: scale(0);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #menuIcon {
+        color: white;
+    }
+
+    .dashboardMenuDisplay{
+        display: block!important;
+    }
+    .dashboardMenuHide{
+        display: none!important;
+    }
+
+
+    #dashboardMenu {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        height: 100%;
+        width: 80%;
+        animation: slideIn .7s linear;
+        background: white;
+        z-index: 4!important;
+    }
+
+
+    .mh{
+        height: 50%!important;
+    }
+    #dashboardMainBody{
+        width: 100%!important;
+    }
+    #searchInput{
+        width: 100%;
+    }
+    #dashboardMainBody{
+        overflow-y: scroll;
+    }
+    .hospitalClick, .doctorClick{
+        height: 40px!important;
+    }
+
+    #schedulerBody{
+        width: 300px;
+        height: 500px;
+    }
+}
